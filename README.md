@@ -1,10 +1,7 @@
 # Make Better Reports
 
-将 Markdown 内容转换为精美的、零依赖的单页 HTML 文档。
+将模型输出内容/文本/文件内容转换为精美的、零依赖的单页 HTML 文档。
 
-## 功能介绍
-
-把你的 Markdown 或纯文本变成一个精致的、自包含的 HTML 文档页面 —— 无需 npm、无需构建工具、无需外部依赖，全部在浏览器中运行。
 
 ## 特性
 
@@ -44,11 +41,11 @@
 
 ---
 
-Generate beautiful, zero-dependency single-page HTML documentation from Markdown content.
+Generate beautiful, zero-dependency single-page HTML documentation from any content.
 
 ## What It Does
 
-Turns your Markdown or plain text into a polished, self-contained HTML documentation page — no npm, no build tools, no external dependencies. Everything runs in the browser.
+Turns your LLM outputs or text into a polished, self-contained HTML documentation page — no npm, no build tools, no external dependencies. Everything runs in the browser.
 
 ## Features
 
