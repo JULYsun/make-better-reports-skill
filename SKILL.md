@@ -1,9 +1,9 @@
 ---
-name: report docs
-description: Create single-page HTML documentation from Markdown with fixed navigation, table of contents, search, and multiple style presets. Use when the user wants to build documentation, API docs, guides, or technical content.
+name: make-better-report
+description: Create single-page HTML documentation from any content with fixed navigation, table of contents, search, and multiple style presets. Use when the user wants to build documentation, API docs, guides, or technical content.
 ---
 
-# Report Docs
+# make-better-report
 
 Create zero-dependency, single-page HTML documentation that runs entirely in the browser.
 

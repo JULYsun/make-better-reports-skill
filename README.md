@@ -1,8 +1,8 @@
-[English](#make-better-reports) · [中文](#更好的报告)
+[English](#make-better-report) · [中文](#make-better-report-1)
 
 ---
 
-# Make Better Reports
+# make-better-report
 
 Convert any content — text, topics, data, or Markdown — into polished, zero-dependency single-page HTML documentation. No build tools, no npm — runs entirely in the browser.
 
@@ -47,7 +47,7 @@ Convert any content — text, topics, data, or Markdown — into polished, zero-
 
 ---
 
-# 更好的报告
+# make-better-report（中文）
 
 将任何内容——文字、话题、数据或 Markdown——转换为精美的零依赖单页 HTML 文档。无需构建工具，无需 npm，全部在浏览器中运行。
 
