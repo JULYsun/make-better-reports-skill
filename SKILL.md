@@ -55,46 +55,27 @@ If user has Markdown files, ask them to share the path(s).
 
 ## Phase 2: Style Discovery
 
-**This is the "show, don't tell" phase.**
-
-### Step 2.0: Style Path
-
-Ask how they want to choose (header: "Style"):
-- "Show me options" (recommended) — Generate 3 previews based on mood
-- "I know what I want" — Pick from preset list directly
-
-**If direct selection:** Show preset picker and skip to Phase 3. Available presets are defined in [STYLE_PRESETS.md](STYLE_PRESETS.md).
-
-### Step 2.1: Mood Selection (Guided Discovery)
-
-Ask (header: "Vibe", multiSelect: true, max 2):
-What feeling should readers have? Options:
-- Professional/Technical — Clean, trustworthy, precise
-- Modern/Minimal — Simple, elegant, focused
-- Warm/Friendly — Approachable, readable, comfortable
-- Developer/Terminal — Code-focused, technical, hacker aesthetic
-
-### Step 2.2: Generate 3 Style Previews
-
-Based on mood, generate 3 distinct single-page HTML previews showing typography, colors, navigation style, and overall aesthetic.
-
-| Mood | Suggested Presets |
-|------|-------------------|
-| Professional/Technical | Modern Clean, Dark Professional, Swiss Docs |
-| Modern/Minimal | Minimal Light, Paper Docs, Clean Slate |
-| Warm/Friendly | Warm Editorial, Notebook Style, Soft Cream |
-| Developer/Terminal | Terminal Green, Code Dark, Hacker Theme |
-
-Save previews to `.claude-design/doc-previews/` (style-a.html, style-b.html, style-c.html). Each should show a sample documentation page with navigation, TOC, and content.
-
-Open each preview automatically for the user.
-
-### Step 2.3: User Picks
+**Default:** If the user skips style selection entirely, use **Mono Mosaic** and go to Phase 3.
 
 Ask (header: "Style"):
-Which style preview do you prefer? Options: Style A: [Name] / Style B: [Name] / Style C: [Name] / Mix elements
+- "Show me previews" — Go to Step 2.A
+- "I know what I want" — Go to Step 2.B
 
-If "Mix elements", ask for specifics.
+### Step 2.A: Preview Path
+
+Generate 3 distinct single-page HTML previews. Pick 3 presets that contrast well with each other (different moods/palettes). Save to `.claude-design/doc-previews/` (style-a.html, style-b.html, style-c.html) and open each automatically.
+
+Then ask: Which do you prefer? A / B / C / Mix elements. If "Mix", ask for specifics.
+
+### Step 2.B: Direct Pick
+
+| # | Name | Vibe |
+|---|------|------|
+| 0 | **Mono Mosaic** ★ | Warm cream, Geist Mono, amber, 14px |
+| 1 | Light Professional | Clean white, indigo, DM Sans |
+| 2 | Paper Docs | Serif editorial, rust, 17px reading |
+| 3 | Swiss Docs | Grid-based, red accent, right sidebar |
+| 4 | Terminal Green | Full monospace, dark, green accent |
 
 ---
 

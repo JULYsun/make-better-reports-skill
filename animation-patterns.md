@@ -150,14 +150,14 @@ These are self-contained interactive widgets to embed in documentation.
     font-size: 0.85rem;
     background: none;
     border: none;
-    border-bottom: 2px solid transparent;
+    border-radius: 4px;
     cursor: pointer;
     color: var(--text-secondary);
-    transition: color 0.2s, border-color 0.2s;
+    transition: color 0.2s, background 0.2s;
 }
 .tab-btn.active {
     color: var(--accent);
-    border-bottom-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
 }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
@@ -314,21 +314,21 @@ document.querySelectorAll('.code-block').forEach(block => {
     gap: 0.75rem;
     padding: 1rem 1.25rem;
     border-radius: 6px;
-    border-left: 4px solid;
+    border: 1px solid;          /* full perimeter, no single-side stripe */
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
 }
 .callout-icon { font-size: 1.1rem; flex-shrink: 0; }
-.callout.info    { background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
-.callout.warning { background: #fffbeb; border-color: #f59e0b; color: #92400e; }
-.callout.danger  { background: #fef2f2; border-color: #ef4444; color: #991b1b; }
-.callout.success { background: #f0fdf4; border-color: #22c55e; color: #166534; }
+.callout.info    { background: #eff6ff; border-color: rgba(59,130,246,.3);  color: #1e40af; }
+.callout.warning { background: #fffbeb; border-color: rgba(245,158,11,.3);  color: #92400e; }
+.callout.danger  { background: #fef2f2; border-color: rgba(239,68,68,.3);   color: #991b1b; }
+.callout.success { background: #f0fdf4; border-color: rgba(34,197,94,.3);   color: #166534; }
 
 /* Dark theme overrides */
-[data-theme="dark"] .callout.info    { background: #1e3a5f; color: #93c5fd; }
-[data-theme="dark"] .callout.warning { background: #3d2e00; color: #fcd34d; }
-[data-theme="dark"] .callout.danger  { background: #3d0000; color: #fca5a5; }
-[data-theme="dark"] .callout.success { background: #052e16; color: #86efac; }
+[data-theme="dark"] .callout.info    { background: #1e3a5f; border-color: rgba(59,130,246,.25);  color: #93c5fd; }
+[data-theme="dark"] .callout.warning { background: #3d2e00; border-color: rgba(245,158,11,.25);  color: #fcd34d; }
+[data-theme="dark"] .callout.danger  { background: #3d0000; border-color: rgba(239,68,68,.25);   color: #fca5a5; }
+[data-theme="dark"] .callout.success { background: #052e16; border-color: rgba(34,197,94,.25);   color: #86efac; }
 ```
 
 **Usage in HTML:**

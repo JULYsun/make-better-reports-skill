@@ -329,9 +329,13 @@ class SearchController {
     this.prevBtn = document.getElementById('search-prev');
     this.nextBtn = document.getElementById('search-next');
     this.sections = Array.from(document.querySelectorAll('section'));
-    this.matches = [];      // All <mark> nodes from last search
-    this.currentIndex = -1; // Which match is focused
+    this.matches = [];
+    this.currentIndex = -1;
     this.setupListeners();
+  }
+
+  escapeRegex(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
   search(query) {
@@ -339,52 +343,36 @@ class SearchController {
     this.matches = [];
     this.currentIndex = -1;
 
-    if (!query || query.length < 2) {
-      this.updateUI(0);
-      return;
-    }
+    if (!query || query.length < 2) { this.updateUI(0); return; }
 
-    // Highlight all matches across sections
+    const safe = this.escapeRegex(query);
+    const re = new RegExp(`(${safe})`, 'gi');
+
     this.sections.forEach(section => {
-      const walker = document.createTreeWalker(
-        section, NodeFilter.SHOW_TEXT, null, false
-      );
-      const nodesToReplace = [];
+      const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT);
+      const nodes = [];
       let node;
       while (node = walker.nextNode()) {
         if (node.parentElement.closest('script, style, mark')) continue;
-        if (new RegExp(query, 'gi').test(node.textContent)) {
-          nodesToReplace.push(node);
-        }
+        if (re.test(node.textContent)) nodes.push(node);
+        re.lastIndex = 0;
       }
-      nodesToReplace.forEach(node => {
+      nodes.forEach(n => {
         const span = document.createElement('span');
-        span.innerHTML = node.textContent.replace(
-          new RegExp(`(${query})`, 'gi'),
-          '<mark>$1</mark>'
-        );
-        node.parentNode.replaceChild(span, node);
+        span.innerHTML = n.textContent.replace(re, '<mark>$1</mark>');
+        n.parentNode.replaceChild(span, n);
       });
     });
 
-    // Collect all mark elements in DOM order
     this.matches = Array.from(document.querySelectorAll('mark'));
     this.updateUI(this.matches.length);
-
-    // Jump to first match
-    if (this.matches.length > 0) {
-      this.currentIndex = 0;
-      this.scrollToMatch(0);
-    }
+    if (this.matches.length > 0) { this.currentIndex = 0; this.scrollToMatch(0); }
   }
 
   scrollToMatch(index) {
-    // Remove focus style from previous
     this.matches.forEach(m => m.classList.remove('mark-active'));
-
     const target = this.matches[index];
     if (!target) return;
-
     target.classList.add('mark-active');
     target.scrollIntoView({ behavior: 'smooth', block: 'center' });
     this.updateUI(this.matches.length);
@@ -403,20 +391,20 @@ class SearchController {
   }
 
   updateUI(total) {
-    if (total === 0) {
-      this.searchCount.textContent = this.searchInput.value.length >= 2 ? 'No matches' : '';
-    } else {
-      this.searchCount.textContent = `${this.currentIndex + 1} / ${total}`;
-    }
+    this.searchCount.textContent = total === 0
+      ? (this.searchInput.value.length >= 2 ? 'No matches' : '')
+      : `${this.currentIndex + 1} / ${total}`;
     const show = total > 0;
     if (this.prevBtn) this.prevBtn.style.display = show ? 'inline-flex' : 'none';
     if (this.nextBtn) this.nextBtn.style.display = show ? 'inline-flex' : 'none';
   }
 
   clearHighlights() {
+    // normalize() merges fragmented text nodes after repeated searches
     document.querySelectorAll('mark').forEach(mark => {
       mark.replaceWith(mark.textContent);
     });
+    this.sections.forEach(s => s.normalize());
   }
 
   setupListeners() {
