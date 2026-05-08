@@ -38,7 +38,7 @@ Determine what the user wants:
 
 ## Phase 1: Content Discovery (New Documentation)
 
-**Ask ALL questions in a single call:**
+**Ask ALL questions:**
 
 **Question 1 — Content Source** (header: "Content"):
 What content do you have? Options: Markdown file ready / Multiple MD files / Will provide text / Just topic
@@ -55,7 +55,7 @@ If user has Markdown files, ask them to share the path(s).
 
 ## Phase 2: Style Discovery
 
-**Default:** If the user skips style selection entirely, use **Mono Mosaic** and go to Phase 3.
+**Default:** If the user skips style selection entirely, use **Light Professional** and go to Phase 3.
 
 Ask (header: "Style"):
 - "Show me previews" — Go to Step 2.A
@@ -71,11 +71,10 @@ Then ask: Which do you prefer? A / B / C / Mix elements. If "Mix", ask for speci
 
 | # | Name | Vibe |
 |---|------|------|
-| 0 | **Mono Mosaic** ★ | Warm cream, Geist Mono, amber, 14px |
-| 1 | Light Professional | Clean white, indigo, DM Sans |
-| 2 | Paper Docs | Serif editorial, rust, 17px reading |
-| 3 | Swiss Docs | Grid-based, red accent, right sidebar |
-| 4 | Terminal Green | Full monospace, dark, green accent |
+| 0 | **Light Professional** ★ | Clean white, indigo, DM Sans |
+| 1 | Paper Docs | Serif editorial, rust, 17px reading |
+| 2 | Swiss Docs | Grid-based, red accent, right sidebar |
+| 3 | Terminal Green | Full monospace, dark, green accent |
 
 ---
 

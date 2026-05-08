@@ -44,59 +44,9 @@ box-shadow: 0 8px 32px rgba(0,0,0,0.18); /* heavy modal shadow */
 
 ## Presets
 
-### 0 — Mono Mosaic ★ default
+### 0 — Light Professional ★ default
 
 > Use when user has not specified any style preference.
-
-**Vibe:** Warm cream + developer precision. Compact 14px body, Geist + Geist Mono, amber accent.
-**Layout:** Left sidebar, hierarchical TOC
-
-**Fonts:**
-```html
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
-```
-
-```css
-:root {
-    --bg-primary:   #FFFEF2;
-    --bg-surface:   #F7F6E8;
-    --text-primary: #191918;
-    --text-secondary: rgba(25,25,24,.45);
-    --border:       rgba(25,25,24,.12);
-    --accent:       #FCAA2D;
-    --green:        #28C840;
-    --code-bg:      #18181a;
-    --font-display: 'Geist', sans-serif;
-    --font-body:    'Geist', sans-serif;
-    --font-code:    'Geist Mono', monospace;
-    --font-numeric: 'Geist Mono', monospace;
-    /* scale: compact */
-    --text-body:    0.875rem;   /* 14px */
-    --text-small:   0.8125rem;  /* 13px */
-    --text-mono-label: 0.6875rem; /* 11px uppercase */
-    --lh-body:      1.7;
-    --lh-heading:   1.1;
-}
-```
-
-**Code syntax (on dark `--code-bg`):**
-```css
-.token-comment { color: rgba(255,255,255,0.25); }
-.token-method  { color: #FCAA2D; }
-.token-url     { color: #a5c8ff; }
-.token-key     { color: #98d9a4; }
-.token-value   { color: #f0a97a; }
-```
-
-**TOC active — background tint, no stripe:**
-```css
-.toc-link { font-family: var(--font-code); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); padding: 0.3rem 0.75rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
-.toc-link.active { color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); }
-```
-
----
-
-### 1 — Light Professional
 
 **Vibe:** Clean white, indigo accent, DM Sans headers. Precise, trustworthy, airy. Standard 16px body.
 **Layout:** Left sidebar, full-height TOC
@@ -135,7 +85,7 @@ box-shadow: 0 8px 32px rgba(0,0,0,0.18); /* heavy modal shadow */
 
 ---
 
-### 2 — Paper Docs
+### 1 — Paper Docs
 
 **Vibe:** Serif editorial, warm off-white, rust accent. Relaxed 17px reading scale.
 **Layout:** Left sidebar, centered content max-width 720px
@@ -174,7 +124,7 @@ box-shadow: 0 8px 32px rgba(0,0,0,0.18); /* heavy modal shadow */
 
 ---
 
-### 3 — Swiss Docs
+### 2 — Swiss Docs
 
 **Vibe:** Grid-based, Archivo bold headers, red accent, right sidebar. Standard scale.
 **Layout:** Right sidebar
@@ -213,7 +163,7 @@ box-shadow: 0 8px 32px rgba(0,0,0,0.18); /* heavy modal shadow */
 
 ---
 
-### 4 — Terminal Green
+### 3 — Terminal Green
 
 **Vibe:** Full monospace, dark GitHub-style bg, green accent. Compact scale.
 **Layout:** Left sidebar
